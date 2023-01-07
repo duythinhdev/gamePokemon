@@ -1,6 +1,7 @@
 import {useState, useCallback, useEffect} from 'react'
 import './App.css'
 import Card from "./Card/Card";
+import {state,data} from "../src/type/Type";
 
 const dataFace = [
     {
@@ -52,20 +53,15 @@ const dataFace = [
         data: 6,
     },
 ]
-interface state {
-    show?: boolean,
-    id?: number,
-    value?: string
-}
 function App() {
-    const [card, setCard] = useState<Array<any>>(dataFace);
+    const [card, setCard] = useState<Array<data>>(dataFace);
     const [state,setState] = useState<state>({
         show: false,
         id: 0,
         value: ""
     })
 
-    const handleUpCard = useCallback((index: number,data: any) => {
+    const handleUpCard = useCallback((index?: number,data?: string) => {
         setState((pre) => ({...pre,show: true}))
         setState((pre) => ({...pre,id: index}))
         setState((pre) => ({...pre,value: data}))

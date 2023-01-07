@@ -1,15 +1,12 @@
 import React from 'react';
+import {data} from "../type/Type";
 
-interface data {
-    id?: number,
-    data?: number
-}
 interface props {
-    dataFace?: Array<data>,
+    dataFace?: data[],
     showCard?: boolean,
-    handleUpCard?: ((index: any,data:any) => (void | undefined)) | undefined,
+    handleUpCard?: ((index: number,data: string) => (void | undefined)) | undefined,
     id?: number
-    value?: any
+    value?: string
 }
 
 const Card: React.FunctionComponent<props> = ({dataFace,showCard,handleUpCard,id,value}) => {
