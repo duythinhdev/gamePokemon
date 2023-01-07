@@ -39,3 +39,11 @@
 .read-the-docs {
   color: #888;
 }
+
+#playfield { margin: 0 auto; position: relative; width: 100%; line-height: 100px}
+
+#playfield .card { float: left; height: 110px; margin: 0 5px 10px; position: relative; -webkit-transform: rotateY(180deg); -webkit-transform-style: preserve-3d; -webkit-transition: -webkit-transform 0.5s; width: 110px; }
+
+#playfield .card.down { background-color: #dedede; z-index: 0; }
+
+#playfield .card.up { background-color: #333; color: #fff; font-size: 30px; line-height: 100px; text-align: center; -webkit-transform: rotateY(180deg); -webkit-transform: rotateY(0deg); }

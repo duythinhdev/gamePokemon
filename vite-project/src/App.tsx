@@ -1,34 +1,80 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
+import {useState, useCallback} from 'react'
 import './App.css'
+import Card from "./Card/Card";
+
+const dataFace = [
+    {
+        id: 1,
+        data: 1,
+    },
+    {
+        id: 2,
+        data: 2,
+    },
+    {
+        id: 3,
+        data: 3,
+    },
+    {
+        id: 4,
+        data: 4,
+    },
+    {
+        id: 5,
+        data: 5,
+    },
+    {
+        id: 6,
+        data: 6,
+    },
+    {
+        id: 7,
+        data: 1,
+    },
+    {
+        id: 8,
+        data: 2,
+    },
+    {
+        id: 9,
+        data: 3,
+    },
+    {
+        id: 10,
+        data: 4,
+    },
+    {
+        id: 11,
+        data: 5,
+    },
+    {
+        id: 12,
+        data: 6,
+    },
+]
 
 function App() {
-  const [count, setCount] = useState(0)
+    const [card, setCard] = useState<Array<any>>(dataFace);
+    const [showCard, setShowCard] = useState<boolean>(false);
+    const [id, setId] = useState<any>();
+    const [value,setValue] = useState();
 
-  return (
-    <div className="App">
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src="/vite.svg" className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://reactjs.org" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </div>
-  )
+    const handleUpCard = useCallback((index: number,data: any) => {
+        setShowCard(true);
+        setId(index);
+        setValue(data)
+    },[id,showCard,value])
+    return (
+        <>
+            <Card
+                dataFace={card}
+                showCard={showCard}
+                handleUpCard={handleUpCard}
+                data={value}
+                id={id}
+            />
+        </>
+    )
 }
 
 export default App
