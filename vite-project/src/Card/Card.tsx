@@ -13,6 +13,7 @@ const Card: React.FunctionComponent<props> = ({dataFace,showCard,handleUpCard,id
     return (
         <div id="playfield">
             {dataFace?.map((value: any, index: number) => {
+                let previousClick = value.data;
                 // if (showCard && value.data === data){
                 //     return <div
                 //         className={`card up`}
