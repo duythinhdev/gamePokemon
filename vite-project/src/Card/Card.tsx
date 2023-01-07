@@ -9,17 +9,26 @@ interface props {
     showCard?: boolean,
     handleUpCard?: ((index: any,data:any) => (void | undefined)) | undefined,
     id?: number
-    data?: number
+    value?: any
 }
 
-const Card: React.FunctionComponent<props> = ({dataFace,showCard,handleUpCard,id,data}) => {
+const Card: React.FunctionComponent<props> = ({dataFace,showCard,handleUpCard,id,value}) => {
     return (
         <div id="playfield">
             {dataFace?.map((value: any, index: number) => {
+                // if (showCard && value.data === data){
+                //     return <div
+                //         className={`card up`}
+                //         key={index}
+                //         onClick={() => handleUpCard && handleUpCard(value.id,value.data)}
+                //     >
+                //         {value?.data}
+                //     </div>
+                // }
                 return <div
-                    className={`card ${showCard && id === value?.id  ? 'up' : 'down'}`}
+                    className={`card ${(showCard && id === value?.id)  ? 'up' : 'down'}`}
                     key={index}
-                    onClick={(id: any) => handleUpCard && handleUpCard(value.id,value.data)}
+                    onClick={() => handleUpCard && handleUpCard(value.id,value.data)}
                 >
                     {value?.data}
                 </div>
